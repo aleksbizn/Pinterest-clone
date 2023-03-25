@@ -1,0 +1,24 @@
+{
+  "name": "pinterest-clone",
+  "version": "1.0.0",
+  "description": "Pinterest-clone/JS SASS Parcel Semantic UI",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleksbizn/Pinterest-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleksbizn/Pinterest-clone/issues"
+  },
+  "homepage": "https://github.com/aleksbizn/Pinterest-clone#readme",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
+}
