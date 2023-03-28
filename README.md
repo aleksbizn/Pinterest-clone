@@ -1,4 +1,4 @@
 # Pinterest-clone
-Pinterest-clone/JS SASS Parcel Semantic UI
+Pinterest-clone/JS SASS Parcel Materialize UI
 
 Web Link: [Paparest](https://paparest.netlify.app/)
