@@ -17,6 +17,7 @@ const arrayCards = [
 ];
 const deskDogs = [];
 const deskIce = [];
+const deskElephants = [];
 
 
 
@@ -53,17 +54,17 @@ const createCard = (img, user, caption) => {
 	return cardWrapper;
 }
 
-const handlerCardHover = (event) => {
-	console.log(event.target);
-	if (event.target.dataset.name === 'card') { 
-		console.log('yo')
-	}
-}
+// const handlerCardHover = (event) => {
+// 	console.log(event.target);
+// 	if (event.target.dataset.name === 'card') { 
+// 		console.log('yo');
+// 	}
+// }
 
 arrayCards.forEach(item => {
 	const card = createCard(images[item.id], item.user, item.caption);
 	galary.append(card);
-	card.addEventListener('click', handlerCardHover);
+	// card.addEventListener('click', handlerCardHover);
 
 
 });

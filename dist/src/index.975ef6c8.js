@@ -615,6 +615,7 @@ const arrayCards = [
 ];
 const deskDogs = [];
 const deskIce = [];
+const deskElephants = [];
 const createCard = (img, user, caption)=>{
     const cardWrapper = document.createElement("div");
     const card = document.createElement("div");
@@ -641,14 +642,16 @@ const createCard = (img, user, caption)=>{
     cardContentText.append(caption);
     return cardWrapper;
 };
-const handlerCardHover = (event)=>{
-    console.log(event.target);
-    if (event.target.dataset.name === "card") console.log("yo");
-};
+// const handlerCardHover = (event) => {
+// 	console.log(event.target);
+// 	if (event.target.dataset.name === 'card') { 
+// 		console.log('yo');
+// 	}
+// }
 arrayCards.forEach((item)=>{
     const card = createCard(_webp[item.id], item.user, item.caption);
     galary.append(card);
-    card.addEventListener("click", handlerCardHover);
+// card.addEventListener('click', handlerCardHover);
 });
 
 },{"./img/cardImages/*.webp":"h01Ck"}],"h01Ck":[function(require,module,exports) {

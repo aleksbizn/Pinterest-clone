@@ -34,24 +34,59 @@
 			</div>
 		</nav>
 		
-		
+
 		<div id="galary" class="row ">
 				
-			<!-- <div class="card__wrapper col s6 m3">
-				<div class="card">
-					<div class="card-image">
-						<img src="./img/sample-1.jpg">
+			<div class="card__wrapper col s6 m3">
+				<a class="modal-trigger" href="#modal_clickCard">
+					<div class="card">
+						<div class="card-image">
+							<img src="./img/sample-1.jpg">
+						</div>
+						<div class="card-content">
+							<span class="card-title">Card Title</span>
+							<p>I am a very simple card.</p>
+						</div>
 					</div>
-					<div class="card-content">
-						<span class="card-title">Card Title</span>
-						<p>I am a very simple card.</p>
-					</div>
-				</div>
-			</div> -->
+				</a>
+			</div>
 									
 		</div>
 	</div>
 	
+	<!-- Modal Structure -->
+  <div id="modal_clickCard" class="modal">
+    <div class="modal-content flex-vert">
+      <h4>Название карточки</h4>
+      <p>Описание карточки</p>
+			<a class="waves-effect waves-light btn modal-trigger" href="#modal_choseDesk">Добавить</a>
+			<a class="waves-effect waves-light btn modal-trigger" href="#modal3_deleteDesk">Удалить</a>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Закрыть</a>
+    </div>
+  </div>
+	<!-- Modal Structure -->
+  <div id="modal_choseDesk" class="modal">
+    <div class="modal-content flex-vert">
+      <h4>modal_choseDesk</h4>
+      <p>Список досок</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Закрыть</a>
+    </div>
+  </div>
+	<!-- Modal Structure -->
+  <div id="modal3_deleteDesk" class="modal">
+    <div class="modal-content flex-vert">
+      <h4>modal3_deleteDesk</h4>
+      <p>Причины удаления</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Закрыть</a>
+    </div>
+  </div>
+
 	<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
 	<script type="text/javascript" src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
 	<script src="./index.js" defer type="module"></script>

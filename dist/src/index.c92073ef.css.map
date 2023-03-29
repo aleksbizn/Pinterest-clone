@@ -1,1 +1,1 @@
-{"mappings":"AAAA","sources":["src/css/style.css"],"sourcesContent":[".card-image:hover {\r\n\tcursor: pointer;\r\n}"],"names":[],"version":3,"file":"index.c92073ef.css.map","sourceRoot":"/__parcel_source_root/"}
+{"mappings":"AAAA;;;;AAGA","sources":["src/css/style.css"],"sourcesContent":[".card-image:hover {\r\n\tcursor: pointer;\r\n}\r\n.flex-vert {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\talign-items: center;\r\n\tgap: 20px;\r\n}"],"names":[],"version":3,"file":"index.c92073ef.css.map","sourceRoot":"/__parcel_source_root/"}
