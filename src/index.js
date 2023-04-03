@@ -1,42 +1,51 @@
-// import sampleImage from './img/sample-1.jpg';
-import * as images from './img/cardImages/*.webp';
-// console.log(images)
-
 const galary = document.getElementById('galary');
-const arrayCards = [
-  { id: 1, user: "Анастасия Иванова", caption: "Кот в коробке" },
-  { id: 2, user: "Сергей Смирнов", caption: "Закат на море" },
-  { id: 3, user: "Ольга Кузнецова", caption: "Лес в тумане" },
-  { id: 4, user: "Алексей Попов", caption: "Цветущие яблони" },
-  { id: 5, user: "Марина Лебедева", caption: "Зимняя ночь" },
-  { id: 6, user: "Дмитрий Новиков", caption: "Река в горах" },
-  { id: 7, user: "Кирилл Козлов", caption: "Небо в огне" },
-  { id: 8, user: "Екатерина Васильева", caption: "Кошка на дереве" },
-  { id: 9, user: "Андрей Петров", caption: "Осенний лес" },
-  { id: 10, user: "Анна Сидорова", caption: "Горный пейзаж" },
-];
-const deskDogs = [];
-const deskIce = [];
-const deskElephants = [];
 
+fetch('https://642a8589b11efeb7599b4947.mockapi.io/cards', {
+  method: 'GET',
+  headers: {'content-type':'application/json'},
+}).then(res => {
+  if (res.ok) {
+      return res.json();
+  }
+  // handle error
+}).then(pins => {
+	console.log(pins);
+	pins.forEach(pin => {
+		console.log(pin);
+		const card = createCard(pin.id, pin.image, pin.name, pin.avatar, pin.caption);
+		galary.append(card);
+	})
+  // Do something with the list of tasks
+}).catch(error => {
+  // handle error
+})
 
-
-const createCard = (img, user, caption) => {
+const createCard = (id, img, user, avatarImg, caption) => {
 	const cardWrapper = document.createElement('div');
+	const modalTrigger = document.createElement('a');
 	const card = document.createElement('div');
 	const cardImage = document.createElement('div');
 	const image = document.createElement('img');
 	const cardContent = document.createElement('div');
+	const userBlock = document.createElement('div');
+	const avatar = document.createElement('img');
 	const userName = document.createElement('span');
 	const cardContentText = document.createElement('p');
 
-	cardWrapper.append(card);
+
 	cardWrapper.classList.add('card__wrapper');
 	cardWrapper.classList.add('col');
 	cardWrapper.classList.add('s6');
 	cardWrapper.classList.add('m3');
+	cardWrapper.append(modalTrigger);
+	
+	modalTrigger.classList.add('modal-trigger');
+	modalTrigger.href = '#modal_clickCard';
+	modalTrigger.append(card);
+
 
 	card.classList.add('card');
+	card.id = id;
 	card.append(cardImage, cardContent);
 
 	cardImage.classList.add('card-image');
@@ -45,7 +54,14 @@ const createCard = (img, user, caption) => {
 	cardImage.append(image);
 
 	cardContent.classList.add('card-content');
-	cardContent.append(userName, cardContentText);
+	cardContent.append(userBlock, cardContentText);
+
+	userBlock.classList.add('flex');
+	userBlock.append(avatar, userName);
+
+	avatar.src = avatarImg;
+	avatar.classList.add('avatar');
+
 	userName.append(user);
 	userName.classList.add('card-title');
 
@@ -60,15 +76,4 @@ const createCard = (img, user, caption) => {
 // 		console.log('yo');
 // 	}
 // }
-
-arrayCards.forEach(item => {
-	const card = createCard(images[item.id], item.user, item.caption);
-	galary.append(card);
-	// card.addEventListener('click', handlerCardHover);
-
-
-});
-
-
-
 
