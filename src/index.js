@@ -1,4 +1,21 @@
 const galary = document.getElementById('galary');
+const dropdownChooseDesk = document.getElementById('dropdown2');
+
+const cardClickIdArray = [];
+const desks = [{
+	idDesk : 1,
+	nameDesk : 'Desk1',
+	itemsDesk : [],
+},{
+	idDesk : 2,
+	nameDesk : 'Desk2',
+	itemsDesk : [],
+},{
+	idDesk : 3,
+	nameDesk : 'Desk3',
+	itemsDesk : [],
+}];
+
 
 fetch('https://642a8589b11efeb7599b4947.mockapi.io/cards', {
   method: 'GET',
@@ -11,14 +28,21 @@ fetch('https://642a8589b11efeb7599b4947.mockapi.io/cards', {
 }).then(pins => {
 	console.log(pins);
 	pins.forEach(pin => {
-		console.log(pin);
-		const card = createCard(pin.id, pin.image, pin.name, pin.avatar, pin.caption);
+		const card = createCard(pin.id, pin.image + '?random=' + pin.id, pin.name, pin.avatar, pin.caption);
 		galary.append(card);
+		card.addEventListener('click', handleCard);
+
 	})
   // Do something with the list of tasks
 }).catch(error => {
   // handle error
 })
+
+const handleCard = event => {
+	const idClickCard = event.target.closest('.card__wrapper').id;
+	cardClickIdArray.push(idClickCard)
+	// console.log(cardClickIdArray)
+}
 
 const createCard = (id, img, user, avatarImg, caption) => {
 	const cardWrapper = document.createElement('div');
@@ -32,20 +56,19 @@ const createCard = (id, img, user, avatarImg, caption) => {
 	const userName = document.createElement('span');
 	const cardContentText = document.createElement('p');
 
-
 	cardWrapper.classList.add('card__wrapper');
 	cardWrapper.classList.add('col');
 	cardWrapper.classList.add('s6');
 	cardWrapper.classList.add('m3');
+	cardWrapper.id = id;
+
 	cardWrapper.append(modalTrigger);
 	
 	modalTrigger.classList.add('modal-trigger');
 	modalTrigger.href = '#modal_clickCard';
 	modalTrigger.append(card);
 
-
 	card.classList.add('card');
-	card.id = id;
 	card.append(cardImage, cardContent);
 
 	cardImage.classList.add('card-image');
@@ -70,10 +93,15 @@ const createCard = (id, img, user, avatarImg, caption) => {
 	return cardWrapper;
 }
 
-// const handlerCardHover = (event) => {
-// 	console.log(event.target);
-// 	if (event.target.dataset.name === 'card') { 
-// 		console.log('yo');
-// 	}
-// }
+const handleClickChooseDesk = event => {
+	const choosenDeskId = event.target.getAttribute('data-idDropdownItem');
 
+	if (!desks[choosenDeskId-1].itemsDesk.includes(cardClickIdArray.at(-1))) {
+				desks[choosenDeskId-1].itemsDesk.push(cardClickIdArray.at(-1));
+			}
+
+	// console.log(desks);
+
+}
+
+dropdownChooseDesk.addEventListener('click', handleClickChooseDesk);
