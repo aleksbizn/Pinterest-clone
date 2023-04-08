@@ -559,7 +559,7 @@ function hmrAccept(bundle, id) {
 },{}],"8lqZg":[function(require,module,exports) {
 const galary = document.getElementById("galary");
 const dropdownChooseDesk = document.getElementById("dropdown2");
-const cardClickIdArray = []; // обнулить при закрытии модалки
+const cardClickIdArray = [];
 const desks = [
     {
         idDesk: 1,
@@ -597,12 +597,9 @@ fetch("https://642a8589b11efeb7599b4947.mockapi.io/cards", {
 // handle error
 });
 const handleCard = (event)=>{
-    // console.log(event)
-    // console.log(event.target)
-    // console.log(event.target.closest('.card__wrapper').id)
     const idClickCard = event.target.closest(".card__wrapper").id;
     cardClickIdArray.push(idClickCard);
-    console.log(cardClickIdArray);
+// console.log(cardClickIdArray)
 };
 const createCard = (id, img, user, avatarImg, caption)=>{
     const cardWrapper = document.createElement("div");
@@ -641,19 +638,9 @@ const createCard = (id, img, user, avatarImg, caption)=>{
     cardContentText.append(caption);
     return cardWrapper;
 };
-// const handlerCardHover = (event) => {
-// 	console.log(event.target);
-// 	if (event.target.dataset.name === 'card') { 
-// 		console.log('yo');
-// 	}
-// }
 const handleClickChooseDesk = (event)=>{
-    // console.log(event);
-    // console.log(event.target);
     const choosenDeskId = event.target.getAttribute("data-idDropdownItem");
-    // console.log(choosenDeskId);
     if (!desks[choosenDeskId - 1].itemsDesk.includes(cardClickIdArray.at(-1))) desks[choosenDeskId - 1].itemsDesk.push(cardClickIdArray.at(-1));
-// console.log('desks');
 // console.log(desks);
 };
 dropdownChooseDesk.addEventListener("click", handleClickChooseDesk);

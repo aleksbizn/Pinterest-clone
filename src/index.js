@@ -1,5 +1,7 @@
 const galary = document.getElementById('galary');
-const dropdownChooseDesk = document.getElementById('dropdown2');
+const dropdownChooseDesk = document.getElementById('dropdown2');//rename
+const dropdownMenu = document.getElementById('dropdown1');//rename
+
 
 const cardClickIdArray = [];
 const desks = [{
@@ -16,31 +18,31 @@ const desks = [{
 	itemsDesk : [],
 }];
 
+const getCards = () => new Promise((resolve, reject) => {
+	fetch ('https://642a8589b11efeb7599b4947.mockapi.io/cards').then(response => {
+		if (response.ok) {
+			resolve(response.json());
+		}
 
-fetch('https://642a8589b11efeb7599b4947.mockapi.io/cards', {
-  method: 'GET',
-  headers: {'content-type':'application/json'},
-}).then(res => {
-  if (res.ok) {
-      return res.json();
-  }
-  // handle error
-}).then(pins => {
+		reject(new Error('Response is not Ok!'));
+	})
+})
+
+getCards().then(pins => {
 	console.log(pins);
 	pins.forEach(pin => {
-		const card = createCard(pin.id, pin.image + '?random=' + pin.id, pin.name, pin.avatar, pin.caption);
+		const card = createCard(pin.id, pin.image + '?random=' + pin.id, pin.name, pin.avatar, pin.caption); // + '?random=' + pin.id
 		galary.append(card);
 		card.addEventListener('click', handleCard);
-
 	})
-  // Do something with the list of tasks
 }).catch(error => {
-  // handle error
+  console.log(error)
 })
+
 
 const handleCard = event => {
 	const idClickCard = event.target.closest('.card__wrapper').id;
-	cardClickIdArray.push(idClickCard)
+	cardClickIdArray.push(idClickCard);
 	// console.log(cardClickIdArray)
 }
 
@@ -73,7 +75,7 @@ const createCard = (id, img, user, avatarImg, caption) => {
 
 	cardImage.classList.add('card-image');
 	image.src = img; 
-	image.dataset.name = 'card'
+	image.dataset.name = 'card';
 	cardImage.append(image);
 
 	cardContent.classList.add('card-content');
@@ -93,6 +95,22 @@ const createCard = (id, img, user, avatarImg, caption) => {
 	return cardWrapper;
 }
 
+const hideCards  = arr => {
+	const allCards = document.querySelectorAll('.card__wrapper');
+	console.log(allCards)
+	allCards.forEach(card => {
+		if (!arr.includes(card.id)) card.classList.add('hide');
+	})
+}
+
+const showAllCards = () => {
+	const allCards = document.querySelectorAll('.card__wrapper');
+	allCards.forEach(card => {
+		card.classList.remove('hide');
+	})
+}
+
+
 const handleClickChooseDesk = event => {
 	const choosenDeskId = event.target.getAttribute('data-idDropdownItem');
 
@@ -100,8 +118,20 @@ const handleClickChooseDesk = event => {
 				desks[choosenDeskId-1].itemsDesk.push(cardClickIdArray.at(-1));
 			}
 
-	// console.log(desks);
+	console.log(desks);
+
+}
+
+const handleClickMenuItem = event => {
+	const choosenDeskId = event.target.getAttribute('data-idDropdownItem');
+	console.log(desks[choosenDeskId-1]);
+	console.log(choosenDeskId === '4')
+	if (choosenDeskId === '4') {
+		showAllCards();
+	} else hideCards(desks[choosenDeskId-1].itemsDesk);
+
 
 }
 
 dropdownChooseDesk.addEventListener('click', handleClickChooseDesk);
+dropdownMenu.addEventListener('click', handleClickMenuItem);
