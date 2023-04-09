@@ -31,13 +31,13 @@
 						<i class="material-icons">close</i>
 					</div>
 				</form>
-				<a href="#!" class="brand-logo">Flowerest</a>
-				<a class="dropdown-trigger right" href="#!" data-target="dropdown1">Desks<i class="material-icons right">arrow_drop_down</i></a>
+				<a href="#!" class="brand-logo center">Flowerest</a>
+				<a class="dropdown-trigger right desk-menu" href="#!" data-target="dropdown1">DESKS<i class="material-icons right">arrow_drop_down</i></a>
 			</div>
 		</nav>
 		
 
-		<div id="galary" class="row ">
+		<div id="galary" class="row">
 				
 			<!-- <div class="card__wrapper col s6 m3">
 				<a class="modal-trigger" href="#modal_clickCard">
@@ -60,19 +60,20 @@
 	</div>
 	
 	<!-- Modal Structure -->
-  <div id="modal_clickCard" class="modal">
+  <div id="modal_clickCard" class="modal" >
     <div class="modal-content flex-vert">
       <!-- <h4>Название карточки</h4> -->
       <!-- <p>Описание карточки</p> -->
-			<a class="waves-effect waves-light btn modal-trigger" href="#modal_choseDesk">Добавить</a>
-			<a class="dropdown-trigger center" href="#!" data-target="dropdown2">Choose a Desk<i class="material-icons center">arrow_drop_down</i></a>
+			<a class="waves-effect waves-light btn dropdown-trigger center" href="#!" data-target="dropdown2">Добавить</a>
+			<!-- <a class="dropdown-trigger center" href="#!" data-target="dropdown2">Choose a Desk<i class="material-icons center">arrow_drop_down</i></a> -->
 			<a class="waves-effect waves-light btn modal-trigger" href="#modal3_deleteDesk">Удалить</a>
+			
 			<!-- Dropdown Structure -->
 			<ul id="dropdown2" class="dropdown-content">
-				<li><a data-idDropdownItem="1" href="#!">Similar</a></li>
-				<li><a data-idDropdownItem="2" href="#!">It doesn't.</a></li>
+				<li><a data-idDropdownItem="1" href="#!">White.</a></li>
+				<li><a data-idDropdownItem="2" href="#!">Red.</a></li>
 				<!-- <li class="divider"></li> -->
-				<li><a data-idDropdownItem="3" href="#!">I don't know</a></li>
+				<li><a data-idDropdownItem="3" href="#!">I like it.</a></li>
 			</ul>
 		</div>
     <div class="modal-footer">
@@ -80,8 +81,23 @@
     </div>
   </div>
 
-	<!-- Modal Structure -->
-  
+	<!-- Modal Structure 
+  <div id="modal_choseDesk" class="modal">
+    <div class="modal-content flex-vert">
+      <h4>Список досок</h4>
+			<a class="dropdown-trigger center" href="#!" data-target="dropdown2">Choose a Desk<i class="material-icons center">arrow_drop_down</i></a>
+
+			<ul id="dropdown2" class="dropdown-content">
+				<li><a data-idDropdownItem="1" href="#!">Similar</a></li>
+				<li><a data-idDropdownItem="2" href="#!">It doesn't.</a></li>
+				<li><a data-idDropdownItem="3" href="#!">I don't know</a></li>
+			</ul>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Закрыть</a>
+    </div>
+  </div>-->
+
 	<!-- Modal Structure -->
   <div id="modal3_deleteDesk" class="modal">
     <div class="modal-content flex-vert">
@@ -93,7 +109,6 @@
     </div>
   </div>
 
-	<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
 	<script type="text/javascript" src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
 	<script src="./index.js" defer type="module"></script>
 	<script>

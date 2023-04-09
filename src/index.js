@@ -36,7 +36,7 @@ const getCards = () => new Promise((resolve, reject) => {
 })
 
 const getImages = () => new Promise((resolve, reject) => {
-	fetch ('https://pixabay.com/api/?key=35227121-472e421ffe50edef9849f302f&q=flowers&image_type=photo&per_page=30&min_width=640&min_height=480&image_type=photo&orientation=vertical').then(response => {
+	fetch ('https://pixabay.com/api/?key=35227121-472e421ffe50edef9849f302f&q=flowers&image_type=photo&per_page=30&min_width=340&min_height=640&image_type=photo&orientation=vertical').then(response => {
 		if (response.ok) {
 			resolve(response.json());
 		}
@@ -88,6 +88,7 @@ const createCard = (id, img, user, avatarImg, caption) => {
 	cardWrapper.classList.add('col');
 	cardWrapper.classList.add('s6');
 	cardWrapper.classList.add('m3');
+	cardWrapper.classList.add('hoverable');
 	cardWrapper.id = id;
 
 	cardWrapper.append(modalTrigger);
