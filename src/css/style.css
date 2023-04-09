@@ -6,7 +6,6 @@
 	display: flex;
 	gap: 14px;
 	align-items: center;
-
 }
 
 .card .card-content {
@@ -26,6 +25,26 @@
 	width: 50px;
 }
 
-.hide {
+.hide, .filter {
 	display: none;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	left: 0;
+	right: 0;
+	background-color: #fafafa;
+	padding: 0;
+	max-height: 70%;
+	height: 30%;
+	width: 15%;
+	margin: auto;
+	overflow-y: auto;
+	border-radius: 2px;
+	will-change: top, opacity
+}
+
+.modal .modal-footer {
+text-align: center;
 }

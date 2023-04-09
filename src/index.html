@@ -8,16 +8,16 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
 	<link rel="stylesheet" href="/src/css/style.css">
-	<title>Welcom to The Simifind!</title>
+	<title>Welcom to The Flowerest!</title>
 </head>
 <body>
 	<div class="container">
 		
 		<!-- Dropdown Structure -->
 		<ul id="dropdown1" class="dropdown-content">
-			<li><a data-idDropdownItem="1" href="#!">Similar</a></li>
-			<li><a data-idDropdownItem="2" href="#!">It doesn't.</a></li>
-			<li><a data-idDropdownItem="3" href="#!">I don't know</a></li>
+			<li><a data-idDropdownItem="1" href="#!">White.</a></li>
+			<li><a data-idDropdownItem="2" href="#!">Red.</a></li>
+			<li><a data-idDropdownItem="3" href="#!">I like it!</a></li>
 			<li class="divider"></li>
 			<li><a data-idDropdownItem="4" href="#!">Show All</a></li>
 		</ul>
@@ -31,7 +31,7 @@
 						<i class="material-icons">close</i>
 					</div>
 				</form>
-				<a href="#!" class="brand-logo">Simifind</a>
+				<a href="#!" class="brand-logo">Flowerest</a>
 				<a class="dropdown-trigger right" href="#!" data-target="dropdown1">Desks<i class="material-icons right">arrow_drop_down</i></a>
 			</div>
 		</nav>
@@ -39,7 +39,7 @@
 
 		<div id="galary" class="row ">
 				
-			<div class="card__wrapper col s6 m3">
+			<!-- <div class="card__wrapper col s6 m3">
 				<a class="modal-trigger" href="#modal_clickCard">
 					<div class="card">
 						<div class="card-image">
@@ -48,13 +48,13 @@
 						<div class="card-content">
 							<div class="flex">
 								<img src="./img/sample-1.jpg" alt="" class="avatar">
-								<span class="card-title">Card Title</span>
+								<span class="card-title">User Name</span>
 							</div>
-							<p>I am a very simple card.</p>
+							<p class="card__caption" >I am a very simple card.</p>
 						</div>
 					</div>
 				</a>
-			</div>
+			</div> -->
 									
 		</div>
 	</div>
@@ -62,23 +62,11 @@
 	<!-- Modal Structure -->
   <div id="modal_clickCard" class="modal">
     <div class="modal-content flex-vert">
-      <h4>Название карточки</h4>
-      <p>Описание карточки</p>
+      <!-- <h4>Название карточки</h4> -->
+      <!-- <p>Описание карточки</p> -->
 			<a class="waves-effect waves-light btn modal-trigger" href="#modal_choseDesk">Добавить</a>
-			<a class="waves-effect waves-light btn modal-trigger" href="#modal3_deleteDesk">Удалить</a>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Закрыть</a>
-    </div>
-  </div>
-
-	<!-- Modal Structure -->
-  <div id="modal_choseDesk" class="modal">
-    <div class="modal-content flex-vert">
-      <h4>modal_choseDesk</h4>
-      <p>Список досок</p>
 			<a class="dropdown-trigger center" href="#!" data-target="dropdown2">Choose a Desk<i class="material-icons center">arrow_drop_down</i></a>
-
+			<a class="waves-effect waves-light btn modal-trigger" href="#modal3_deleteDesk">Удалить</a>
 			<!-- Dropdown Structure -->
 			<ul id="dropdown2" class="dropdown-content">
 				<li><a data-idDropdownItem="1" href="#!">Similar</a></li>
@@ -86,17 +74,19 @@
 				<!-- <li class="divider"></li> -->
 				<li><a data-idDropdownItem="3" href="#!">I don't know</a></li>
 			</ul>
-    </div>
+		</div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Закрыть</a>
+      <a href="#!" class="modal-close waves-effect waves-green btn">Закрыть</a>
     </div>
   </div>
 
 	<!-- Modal Structure -->
+  
+	<!-- Modal Structure -->
   <div id="modal3_deleteDesk" class="modal">
     <div class="modal-content flex-vert">
-      <h4>modal3_deleteDesk</h4>
-      <p>Причины удаления</p>
+      <h4>Причины удаления</h4>
+      <!-- <p>Причины удаления</p> -->
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Закрыть</a>
