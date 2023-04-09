@@ -36,7 +36,7 @@ const getCards = () => new Promise((resolve, reject) => {
 })
 
 const getImages = () => new Promise((resolve, reject) => {
-	fetch ('https://pixabay.com/api/?key=35227121-472e421ffe50edef9849f302f&q=flowers&image_type=photo&per_page=30&min_width=340&min_height=640&image_type=photo&orientation=vertical').then(response => {
+	fetch ('https://pixabay.com/api/?key=35227121-472e421ffe50edef9849f302f&q=flowers&image_type=photo&per_page=29&image_type=photo&orientation=vertical').then(response => {
 		if (response.ok) {
 			resolve(response.json());
 		}
@@ -48,7 +48,6 @@ const getImages = () => new Promise((resolve, reject) => {
 getImages().then(images => {
 	console.log(images.hits);
 	images.hits.forEach(img => {
-		// console.log(img.webformatURL);
 		imagesUrlArr.push(img.webformatURL);
 	})
 }).catch(error => {
@@ -69,7 +68,6 @@ getCards().then(pins => {
 const handleCard = event => {
 	const idClickCard = event.target.closest('.card__wrapper').id;
 	cardClickIdArray.push(idClickCard);
-	// console.log(cardClickIdArray)
 }
 
 const createCard = (id, img, user, avatarImg, caption) => {
@@ -164,7 +162,6 @@ const handleClickMenuItem = event => {
 
 const handleSearch = ({target: { value }}) => {
 	const allCards = document.querySelectorAll('.card__wrapper');
-	console.log(allCards)
 	
 	if (!allCards) {
 		return;

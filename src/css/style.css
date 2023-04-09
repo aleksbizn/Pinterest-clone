@@ -8,6 +8,10 @@
 	align-items: center;
 }
 
+.padding-1 {
+	padding: 0 10px;
+}
+
 .card .card-content {
 	padding: 14px;
 }
@@ -79,4 +83,8 @@ text-align: center;
 		height: 30px;
 		width: 30px;
 	}
+}
+
+.card .card-image img {
+	min-height: 370px;
 }
