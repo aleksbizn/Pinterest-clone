@@ -34,7 +34,7 @@
 	width: 50px;
 }
 
-.hide, .filter {
+.hide, .filter, .deleted {
 	display: none;
 }
 

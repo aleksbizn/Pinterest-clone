@@ -21,7 +21,6 @@
 			<li class="divider"></li>
 			<li><a data-idDropdownItem="4" href="#!">Show All</a></li>
 		</ul>
-		
 		<nav>
 			<div class="nav-wrapper">
 				<form class="left padding-1">
@@ -35,37 +34,16 @@
 				<a class="dropdown-trigger right desk-menu" href="#!" data-target="dropdown1">DESKS<i class="material-icons right">arrow_drop_down</i></a>
 			</div>
 		</nav>
-		
 
 		<div id="galary" class="row">
-				
-			<!-- <div class="card__wrapper col s6 m3">
-				<a class="modal-trigger" href="#modal_clickCard">
-					<div class="card">
-						<div class="card-image">
-							<img src="./img/sample-1.jpg">
-						</div>
-						<div class="card-content">
-							<div class="flex">
-								<img src="./img/sample-1.jpg" alt="" class="avatar">
-								<span class="card-title">User Name</span>
-							</div>
-							<p class="card__caption" >I am a very simple card.</p>
-						</div>
-					</div>
-				</a>
-			</div> -->
-									
+											
 		</div>
 	</div>
 	
 	<!-- Modal Structure -->
   <div id="modal_clickCard" class="modal" >
     <div class="modal-content flex-vert">
-      <!-- <h4>Название карточки</h4> -->
-      <!-- <p>Описание карточки</p> -->
 			<a class="waves-effect waves-light btn dropdown-trigger center" href="#!" data-target="dropdown2">Добавить</a>
-			<!-- <a class="dropdown-trigger center" href="#!" data-target="dropdown2">Choose a Desk<i class="material-icons center">arrow_drop_down</i></a> -->
 			<a class="waves-effect waves-light btn modal-trigger" href="#modal3_deleteDesk">Удалить</a>
 			
 			<!-- Dropdown Structure -->
@@ -81,31 +59,34 @@
     </div>
   </div>
 
-	<!-- Modal Structure 
-  <div id="modal_choseDesk" class="modal">
-    <div class="modal-content flex-vert">
-      <h4>Список досок</h4>
-			<a class="dropdown-trigger center" href="#!" data-target="dropdown2">Choose a Desk<i class="material-icons center">arrow_drop_down</i></a>
-
-			<ul id="dropdown2" class="dropdown-content">
-				<li><a data-idDropdownItem="1" href="#!">Similar</a></li>
-				<li><a data-idDropdownItem="2" href="#!">It doesn't.</a></li>
-				<li><a data-idDropdownItem="3" href="#!">I don't know</a></li>
-			</ul>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Закрыть</a>
-    </div>
-  </div>-->
-
-	<!-- Modal Structure -->
+		<!-- Modal Structure -->
   <div id="modal3_deleteDesk" class="modal">
     <div class="modal-content flex-vert">
       <h4>Причины удаления</h4>
-      <!-- <p>Причины удаления</p> -->
+			<form action="#">
+				<p>
+					<label>
+						<input name="group1" type="radio" checked />
+						<span>Непристойный контент</span>
+					</label>
+				</p>
+				<p>
+					<label>
+						<input name="group1" type="radio" />
+						<span>Низкое качество</span>
+					</label>
+				</p>
+				<p>
+					<label>
+						<input class="with-gap" name="group1" type="radio"  />
+						<span>Не по теме</span>
+					</label>
+				</p>
+			</form>
+			<a id="buttonDelete" class="modal-close waves-effect waves-light btn center" href="#!">Удалить</a>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Закрыть</a>
+      <a href="#!" class="modal-close waves-effect waves-light btn center">Закрыть</a>
     </div>
   </div>
 

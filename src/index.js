@@ -2,10 +2,15 @@ const galary = document.getElementById('galary');
 const dropdownChooseDesk = document.getElementById('dropdown2');//rename
 const dropdownMenu = document.getElementById('dropdown1');//rename
 const search = document.getElementById('search');
+const buttonDelete = document.getElementById('buttonDelete');
 
 const imagesUrlArr = [];
 const cardClickIdArray = [];
 const desksTemplate = [{
+	idDesk : 0,
+	nameDesk : 'Deleted',
+	itemsDesk : [],
+},{
 	idDesk : 1,
 	nameDesk : 'Desk1',
 	itemsDesk : [],
@@ -60,6 +65,10 @@ getCards().then(pins => {
 		const card = createCard(pin.id, imagesUrlArr[pin.id - 1], pin.name, pin.avatar, pin.caption); //pin.image + '?random=' + pin.id
 		galary.append(card);
 		card.addEventListener('click', handleCard);
+		
+		if (desks[0].itemsDesk.includes(pin.id)) {
+			card.classList.add('deleted');
+		}
 	})
 }).catch(error => {
   console.log(error)
@@ -149,8 +158,6 @@ const handleClickChooseDesk = event => {
 
 const handleClickMenuItem = event => {
 	const choosenDeskId = event.target.getAttribute('data-idDropdownItem');
-	// console.log(desks[choosenDeskId-1]);
-	// console.log(choosenDeskId === '4')
 
 	if (choosenDeskId === '4') {
 		showAllCards();
@@ -158,6 +165,16 @@ const handleClickMenuItem = event => {
 		showAllCards();
 		hideCards(desks[choosenDeskId-1].itemsDesk);
 	}
+}
+
+const handleButtonDelete = () => {
+	const cardForDelete = document.getElementById(cardClickIdArray.at(-1));
+	const ModalcardForDelete = document.getElementById('modal_clickCard');
+	
+	cardForDelete.classList.add('deleted');
+	desks[0].itemsDesk.push(cardClickIdArray.at(-1));
+	storageRefresh(desks);
+	M.Modal.getInstance(ModalcardForDelete).close();
 }
 
 const handleSearch = ({target: { value }}) => {
@@ -181,3 +198,5 @@ const handleSearch = ({target: { value }}) => {
 dropdownChooseDesk.addEventListener('click', handleClickChooseDesk);
 dropdownMenu.addEventListener('click', handleClickMenuItem);
 search.addEventListener('input', handleSearch);
+buttonDelete.addEventListener('click', handleButtonDelete);
+
