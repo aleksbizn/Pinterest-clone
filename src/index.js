@@ -56,11 +56,10 @@ getImages().then(images => {
 		imagesUrlArr.push(img.webformatURL);
 	})
 }).catch(error => {
-  console.log(error)
+  console.log(error);
 })
 
 getCards().then(pins => {
-	console.log(pins);
 	pins.forEach(pin => {
 		const card = createCard(pin.id, imagesUrlArr[pin.id - 1], pin.name, pin.avatar, pin.caption); //pin.image + '?random=' + pin.id
 		galary.append(card);
@@ -71,7 +70,7 @@ getCards().then(pins => {
 		}
 	})
 }).catch(error => {
-  console.log(error)
+  console.log(error);
 })
 
 const handleCard = event => {
@@ -148,12 +147,13 @@ const showAllCards = () => {
 
 const handleClickChooseDesk = event => {
 	const choosenDeskId = event.target.getAttribute('data-idDropdownItem');
+	const modalCardForDelete = document.getElementById('modal_clickCard');
 
 	if (!desks[choosenDeskId-1].itemsDesk.includes(cardClickIdArray.at(-1))) {
 				desks[choosenDeskId-1].itemsDesk.push(cardClickIdArray.at(-1));
 				storageRefresh(desks);
 			}
-	console.log(desks);
+	M.Modal.getInstance(modalCardForDelete).close();
 }
 
 const handleClickMenuItem = event => {
@@ -169,12 +169,12 @@ const handleClickMenuItem = event => {
 
 const handleButtonDelete = () => {
 	const cardForDelete = document.getElementById(cardClickIdArray.at(-1));
-	const ModalcardForDelete = document.getElementById('modal_clickCard');
+	const modalCardForDelete = document.getElementById('modal_clickCard');
 	
 	cardForDelete.classList.add('deleted');
 	desks[0].itemsDesk.push(cardClickIdArray.at(-1));
 	storageRefresh(desks);
-	M.Modal.getInstance(ModalcardForDelete).close();
+	M.Modal.getInstance(modalCardForDelete).close();
 }
 
 const handleSearch = ({target: { value }}) => {
