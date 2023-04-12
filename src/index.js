@@ -187,7 +187,7 @@ const handleSearch = ({target: { value }}) => {
 	allCards.forEach(card => {
     const captionText = card.querySelector('.card__caption').textContent;
 
-		if (!captionText.includes(value)) {
+		if (!captionText.toLowerCase().includes(value.toLowerCase())) {
       card.classList.add('filter');
     } else {
       card.classList.remove('filter');
